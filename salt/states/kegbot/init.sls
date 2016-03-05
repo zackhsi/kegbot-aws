@@ -30,6 +30,18 @@ Ensure virtualenv is managed:
     - name: {{ venv }}
     - requirements: salt://kegbot/requirements.txt
 
+Mount EBS for static files:
+  mount.mounted:
+    - name: /srv/kegbot-data
+    - fstype: ext4
+    - device: /dev/xvdf
+    - mkmnt: True
+
+Collect static files in mount:
+  cmd.run:
+    - name: {{ venv }}/bin/kegbot collectstatic -v3 --noinput
+    - unless: "[[ $(ls -A /srv/kegbot-data) ]]"
+
 Ensure kegbot configuration:
   file.managed:
     - name: /home/ubuntu/.kegbot/local_settings.py
