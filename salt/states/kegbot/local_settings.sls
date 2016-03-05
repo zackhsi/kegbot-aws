@@ -12,8 +12,8 @@ DATABASES = {
     }
 }
 
-KEGBOT_ROOT = '/home/ubuntu/kegbot-data'
-MEDIA_ROOT = '/home/ubuntu/kegbot-data/media'
-STATIC_ROOT = '/home/ubuntu/kegbot-data/static'
+KEGBOT_ROOT = '/srv/kegbot-data'
+MEDIA_ROOT = '/srv/kegbot-data/media'
+STATIC_ROOT = '/srv/kegbot-data/static'
 
 SECRET_KEY = '{{ salt["pillar.get"]("secret_key") }}'
