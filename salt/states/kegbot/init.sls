@@ -64,3 +64,16 @@ Ensure kegbot service script:
 Run kegbot server:
   service.running:
     - name: kegbot-server
+
+Ensure workers service script:
+  file.managed:
+    - name: /etc/init/kegbot-workers.conf
+    - source: salt://kegbot/kegbot-workers.conf
+    - template: jinja
+    - mode: 644
+    - listen_in:
+      - service: kegbot-workers
+
+Run kegbot workers:
+  service.running:
+    - name: kegbot-workers
