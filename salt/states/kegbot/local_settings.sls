@@ -16,7 +16,4 @@ KEGBOT_ROOT = '/srv/kegbot-data'
 MEDIA_ROOT = '/srv/kegbot-data/media'
 STATIC_ROOT = '/srv/kegbot-data/static'
 
-EMAIL_BACKEND =  'postmark.django_backend.EmailBackend'
-EMAIL_FROM_ADDRESS = '{{ salt["pillar.get"]("email_from_address") }}'
-
 SECRET_KEY = '{{ salt["pillar.get"]("secret_key") }}'
