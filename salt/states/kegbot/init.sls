@@ -51,6 +51,8 @@ Ensure kegbot configuration:
     - mode: 644
     - user: ubuntu
     - group: ubuntu
+    - listen_in:
+      - service: kegbot-server
 
 Ensure kegbot service script:
   file.managed:
